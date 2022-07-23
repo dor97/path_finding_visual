@@ -16,7 +16,6 @@ def Algorithm_Astar(draw, grid, start, end):
     open_set = PriorityQueue()
     count = 0
     open_set.put((0, count, start))
-    #open_set_hash = {start}
     come_from = {}
     g_score = {spot : float('inf') for row in grid for spot in row}
     g_score[start] = 0
@@ -29,7 +28,6 @@ def Algorithm_Astar(draw, grid, start, end):
                 pygame.quit()
         
         current = open_set.get()[2]
-        #open_set_hash.remove(current)
 
         if current == end:
             reconstruct_path(come_from, end, draw)
@@ -45,7 +43,6 @@ def Algorithm_Astar(draw, grid, start, end):
                 f_score[neighbor] = neighbor_g_score + h(neighbor.getPos(), end.getPos())
                 count += 1
                 open_set.put((f_score[neighbor], count, neighbor))
-                #open_set_hash.add(neighbor)
                 neighbor.make_stat(GREEN)
 
         draw()
