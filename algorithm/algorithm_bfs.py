@@ -34,7 +34,6 @@ def Algorithm_bfs(draw, grid, start, end):
                 come_from[neighbor] = current
                 neighbor.make_stat(GREEN)
                 que.put(neighbor)
-                #map[neighbor] = 0
 
         draw()
         if current != start:
